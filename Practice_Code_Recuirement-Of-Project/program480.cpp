@@ -1,0 +1,147 @@
+#include<iostream>
+using namespace std;
+
+#pragma pack(1)
+class node
+{
+    public:
+        int data;
+        node * next;
+        node *prev;
+
+        node(int no)
+        {
+            this->data = no;
+            this->next = NULL;
+            this->prev = NULL;
+        }
+};
+
+class DoublyLLL
+{
+    public:
+        node * first;
+        int iCount = 0;
+
+        DoublyLLL();
+        void Display();
+        int Count();
+
+        void InsertFirst(int);
+        void InsertLast(int);
+        void InsertAtPos(int,int);
+
+        void DeleteFirst();
+        void DeleteLast();
+        void DeleteAtPos(int);
+};
+
+DoublyLLL::DoublyLLL()
+{
+    cout<<"Linked list gets created \n";
+    this->first = NULL;
+    this->iCount = 0;
+}
+
+void DoublyLLL::Display()
+{
+    node *temp = NULL;
+    temp = first;
+
+    cout<<"\nNULL <=> ";
+
+    while(temp != NULL)
+    {
+        cout<<"| "<<temp->data<<" | <=>";
+        temp = temp->next;
+    }
+
+    cout<<" NULL\n";
+}
+
+int DoublyLLL::Count()
+{
+    return this->iCount;
+}
+void DoublyLLL::InsertFirst(int no)
+{
+    node * newn = NULL;
+
+    newn = new node(no);
+
+    if(this->first == NULL)
+    {
+        this->first = newn;
+    }
+    else
+    {
+        newn->next = first;
+        this->first->prev = newn;
+        this->first = newn;
+    }
+
+    this->iCount++;
+}
+
+void DoublyLLL::InsertLast(int  no)
+{
+    node * newn = NULL;
+    node * temp = NULL;
+
+    newn = new node(no);
+
+    if(this->first == NULL)
+    {
+        this->first = newn;
+    }
+    else
+    {
+        temp = this->first;
+        
+        while(temp->next != NULL)
+        {
+            temp = temp->next;
+        }
+
+        temp->next = newn;
+        newn->prev = newn;
+    }
+
+    this->iCount++;
+}
+
+void DoublyLLL::InsertAtPos(int no,int pos)
+{}
+
+void DoublyLLL::DeleteFirst()
+{}
+
+void DoublyLLL::DeleteLast()
+{}
+
+void DoublyLLL::DeleteAtPos(int pos)
+{}
+
+int main()
+{
+    DoublyLLL * dobj = new DoublyLLL();
+
+    dobj->InsertFirst(51);
+    dobj->InsertFirst(21);
+    dobj->InsertFirst(11);
+
+    dobj->Display();
+
+    cout<<"Number of elements are : "<<dobj->Count()<<"\n";
+
+    dobj->InsertLast(101);
+    dobj->InsertLast(111);
+    dobj->InsertLast(121);
+
+    dobj->Display();
+
+    cout<<"Number of elements are : "<<dobj->Count()<<"\n";
+
+    delete dobj;
+    return 0;
+}
