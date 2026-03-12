@@ -178,6 +178,25 @@ The following data structures may be added in future versions:
 
 ---
 
+# 📊 Time and Space Complexity
+
+**Space Complexity**
+
+| Data Structure | Operation | Time Complexity |
+|----------------|-----------|---------------- |
+| Linked List    | Insert    | O(1) / O(n)     |
+| Linked List    | Delete    | O(1) / O(n)     |
+| Stack          | Push      | O(1)            |
+| Stack          | Pop       | O(1)            |
+| Queue          | Enqueue   | O(1)            |
+| Queue          | Dequeue   | O(1)            |
+
+**Space Complexity**
+
+All structures require **O(n)** space where *n = number of elements stored*.
+
+---
+
 ## 👨‍💻 Author
 
 **Vivek Gautam**
